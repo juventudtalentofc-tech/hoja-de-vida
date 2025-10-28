@@ -3,733 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoja de Vida Profesional</title>
+    <title>Sitio en Mantenimiento</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .cv-container {
-            max-width: 850px;
-            margin: 0 auto;
-            background-color: white;
-            border: 3px solid #000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        /* VISTA ESCRITORIO */
-        .desktop-view {
-            display: block;
-            padding: 50px 60px;
-        }
-
-        .mobile-view {
-            display: none;
-        }
-
-        /* Header Escritorio */
-        .header-desktop {
-            text-align: center;
-            padding: 30px;
-            border: 2px solid #000;
-            margin-bottom: 30px;
-        }
-
-        .header-desktop h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .header-desktop .subtitle {
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            font-size: 0.95em;
-            color: #333;
-        }
-
-        /* Header Mobile */
-        .header-mobile {
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .profile-photo {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 2px solid #000;
-            margin: 0 auto 15px;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            height: 100vh;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: center;
-            font-size: 0.85em;
-            color: #666;
+            color: white;
+            overflow: hidden;
         }
-
-        .header-mobile h1 {
-            font-size: 1.8em;
-            margin-bottom: 8px;
-            font-weight: bold;
+        
+        .maintenance-container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
         }
-
-        .header-mobile .subtitle {
-            font-size: 1em;
-            color: #666;
+        
+        .icon {
+            font-size: 4rem;
             margin-bottom: 20px;
+            animation: bounce 2s infinite;
         }
-
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-        }
-
-        .contact-icons svg {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .contact-icons svg:hover {
-            transform: scale(1.1);
-        }
-
-        /* Secciones */
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-size: 1.2em;
-            font-weight: bold;
+        
+        h1 {
+            font-size: 2.5rem;
             margin-bottom: 15px;
-            text-transform: uppercase;
+            color: #fdbb2d;
         }
-
-        .summary-box {
-            border: 2px solid #000;
-            padding: 20px;
-            margin-bottom: 20px;
-            font-size: 0.95em;
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
             line-height: 1.6;
         }
-
-        /* Grid de Experiencia - Escritorio */
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .experience-item, .education-item, .project-item {
-            border: 2px solid #000;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .experience-item:hover, .education-item:hover, .project-item:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
-        }
-
-        .experience-item h3, .education-item h3, .project-item h3 {
-            font-size: 1.05em;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .dates {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 12px;
-        }
-
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-item li {
-            font-size: 0.95em;
-            margin-bottom: 8px;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .experience-item li:before {
-            content: "- ";
-            position: absolute;
-            left: 0;
-        }
-
-        /* Mobile List Items */
-        .mobile-list-item {
-            border: 1px solid #e0e0e0;
-            padding: 15px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            border-radius: 8px;
-        }
-
-        .mobile-list-item:hover {
-            background-color: #f9f9f9;
-        }
-
-        .mobile-list-item h3 {
-            font-size: 1em;
-            margin-bottom: 4px;
-        }
-
-        .mobile-list-item .subtitle-text {
-            font-size: 0.85em;
-            color: #666;
-        }
-
-        .mobile-list-item svg {
-            width: 20px;
-            height: 20px;
-            color: #999;
-        }
-
-        /* Skills */
-        .skills-section p {
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-
-        .skills-section strong {
-            font-weight: bold;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .project-item {
-            position: relative;
-        }
-
-        .project-img {
-            width: 50px;
-            height: 50px;
-            border: 1px solid #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8em;
-            margin-bottom: 10px;
-        }
-
-        /* Mobile Projects */
-        .mobile-project-item {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-        }
-
-        .mobile-project-item .project-img {
-            margin-bottom: 0;
-            flex-shrink: 0;
-        }
-
-        /* Certifications */
-        .certifications-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .certifications-list li {
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .certifications-list li:before {
-            content: "- ";
-            position: absolute;
-            left: 0;
-        }
-
-        /* RESPONSIVE - MOBILE */
-        @media (max-width: 768px) {
-            body {
-                padding: 0;
-                background-color: white;
-            }
-
-            .cv-container {
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-                max-width: 100%;
-            }
-
-            .desktop-view {
-                display: none;
-            }
-
-            .mobile-view {
-                display: block;
-                padding: 0;
-            }
-
-            .section {
-                padding: 20px;
-                border-bottom: 8px solid #f5f5f5;
-                margin-bottom: 0;
-            }
-
-            .section:last-child {
-                border-bottom: none;
-            }
-
-            .section-title {
-                font-size: 1.1em;
-                margin-bottom: 15px;
-            }
-
-            .summary-box {
-                border: none;
-                padding: 0;
-                color: #666;
-                font-size: 0.9em;
-            }
-        }
-
-        /* Modal para detalles en móvil */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        
+        .progress-container {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
         }
-
-        .modal-content {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: white;
-            border-radius: 20px 20px 0 0;
-            padding: 25px;
-            max-height: 80vh;
-            overflow-y: auto;
-            animation: slideUp 0.3s ease;
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #fdbb2d;
+            width: 0%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
         }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0;
+        
+        .contact {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #cccccc;
         }
-
-        .modal-close {
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #666;
-        }
-
+        
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-
-        @media print {
-            body {
-                background-color: white;
-                padding: 0;
+        
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 25px;
             }
             
-            .cv-container {
-                border: 2px solid #000;
-                box-shadow: none;
-                max-width: 100%;
+            h1 {
+                font-size: 2rem;
             }
-
-            .mobile-view {
-                display: none !important;
-            }
-
-            .desktop-view {
-                display: block !important;
+            
+            p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cv-container">
-        <!-- VISTA ESCRITORIO -->
-        <div class="desktop-view">
-            <!-- ENCABEZADO -->
-            <div class="header-desktop">
-                <h1>[Nombre Completo]</h1>
-                <div class="subtitle">[Título Profesional]</div>
-                <div class="contact-info">
-                    [Teléfono] | [Email] | [LinkedIn] | [GitHub/Portafolio] | [Ubicación]
-                </div>
-            </div>
-
-            <!-- RESUMEN/SOBRE MÍ -->
-            <div class="section">
-                <h2 class="section-title">Resumen/Sobre Mí</h2>
-                <div class="summary-box">
-                    Profesional con X años de experiencia en [tu área]. Especializado en [tus especialidades principales]. Apasionado por [lo que te motiva en tu trabajo]. Busco contribuir con mis habilidades en [tipo de empresa o proyecto] donde pueda [objetivo profesional].
-                </div>
-            </div>
-
-            <!-- EXPERIENCIA PROFESIONAL -->
-            <div class="section">
-                <h2 class="section-title">Experiencia Profesional</h2>
-                
-                <div class="experience-grid">
-                    <div class="experience-item">
-                        <h3>[Puesto 1 @ Empresa 1]</h3>
-                        <div class="dates">[Mes Año - Mes Año]</div>
-                        <ul>
-                            <li>Lideré proyecto que resultó en [resultado medible]</li>
-                            <li>Implementé [tecnología/proceso] mejorando [métrica] en X%</li>
-                            <li>Colaboré con equipo de X personas en [logro específico]</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <h3>[Puesto 2 @ Empresa 2]</h3>
-                        <div class="dates">[Mes Año - Mes Año]</div>
-                        <ul>
-                            <li>Desarrollé [proyecto/sistema] para [propósito]</li>
-                            <li>Optimicé [proceso] reduciendo [métrica] en X%</li>
-                            <li>Gestioné [responsabilidad específica]</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-grid">
-                    <div class="experience-item">
-                        <h3>[Puesto 3 @ Empresa 3]</h3>
-                        <div class="dates">[Mes Año - Mes Año]</div>
-                        <ul>
-                            <li>Coordiné [actividad] con [resultado]</li>
-                            <li>Diseñé [solución] que mejoró [aspecto]</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <h3>[Puesto 4 @ Empresa 4]</h3>
-                        <div class="dates">[Mes Año - Mes Año]</div>
-                        <ul>
-                            <li>Apoyé en [tarea específica]</li>
-                            <li>Participé en [proyecto importante]</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- EDUCACIÓN -->
-            <div class="section">
-                <h2 class="section-title">Educación</h2>
-                
-                <div class="education-item">
-                    <h3>[Título/Grado @ Institución]</h3>
-                    <div class="dates">[Año inicio - Año fin]</div>
-                    <p>Áreas de enfoque: [Menciona especialización o áreas relevantes]</p>
-                </div>
-            </div>
-
-            <!-- HABILIDADES -->
-            <div class="section">
-                <h2 class="section-title">Habilidades</h2>
-                <div class="skills-section">
-                    <p><strong>Técnicas:</strong> JavaScript, Python, React, Node.js, SQL, Git, Docker, AWS, HTML/CSS, TypeScript</p>
-                    <p><strong>Blandas:</strong> Liderazgo de equipos, Comunicación efectiva, Resolución de problemas, Trabajo colaborativo, Gestión de tiempo</p>
-                    <p><strong>Idiomas:</strong> Español (Nativo), Inglés (Avanzado - C1), Francés (Intermedio - B1)</p>
-                </div>
-            </div>
-
-            <!-- PROYECTOS / PORTAFOLIO -->
-            <div class="section">
-                <h2 class="section-title">Proyectos / Portafolio</h2>
-                
-                <div class="projects-grid">
-                    <div class="project-item">
-                        <div class="project-img">Img</div>
-                        <h3>Nombre del Proyecto 1</h3>
-                        <div class="dates">[Año]</div>
-                        <p>Aplicación web para [propósito]. Tecnologías: React, Node.js, MongoDB. Resultados: [impacto o métricas].</p>
-                    </div>
-
-                    <div class="project-item">
-                        <div class="project-img">Img</div>
-                        <h3>Nombre del Proyecto 2</h3>
-                        <div class="dates">[Año]</div>
-                        <p>Sistema de [descripción]. Stack: Python, Django, PostgreSQL. Enlace: [URL del proyecto]</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RECONOCIMIENTOS / CERTIFICACIONES -->
-            <div class="section">
-                <h2 class="section-title">Reconocimientos / Certificaciones</h2>
-                <ul class="certifications-list">
-                    <li>Certificación AWS Solutions Architect - Amazon Web Services (2024)</li>
-                    <li>Professional Scrum Master (PSM I) - Scrum.org (2023)</li>
-                    <li>Reconocimiento al Empleado del Año - [Empresa] (2023)</li>
-                    <li>Google Analytics Individual Qualification (2022)</li>
-                </ul>
-            </div>
+    <div class="maintenance-container">
+        <div class="icon">🔧</div>
+        <h1>Sitio en Mantenimiento</h1>
+        <p>Estamos realizando tareas de mantenimiento para mejorar tu experiencia. Volveremos en breve.</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
-
-        <!-- VISTA MÓVIL -->
-        <div class="mobile-view">
-            <!-- Header Mobile -->
-            <div class="header-mobile">
-                <div class="profile-photo">Foto de Perfil</div>
-                <h1>[Nombre Completo]</h1>
-                <div class="subtitle">[Título Profesional]</div>
-                <div class="contact-icons">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Sobre Mí -->
-            <div class="section">
-                <h2 class="section-title">Sobre Mí</h2>
-                <div class="summary-box">
-                    Profesional con X años de experiencia en [tu área]. Especializado en [tus especialidades principales]. Apasionado por [lo que te motiva en tu trabajo].
-                </div>
-            </div>
-
-            <!-- Experiencia Mobile -->
-            <div class="section">
-                <h2 class="section-title">Experiencia</h2>
-                <div class="mobile-list-item" onclick="openModal('exp1')">
-                    <div>
-                        <h3>[Puesto 1 @ Empresa]</h3>
-                        <div class="subtitle-text">[Fechas]</div>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-                <div class="mobile-list-item" onclick="openModal('exp2')">
-                    <div>
-                        <h3>[Puesto 2 @ Empresa]</h3>
-                        <div class="subtitle-text">[Detalles ocultos]</div>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Educación Mobile -->
-            <div class="section">
-                <h2 class="section-title">Educación</h2>
-                <div class="mobile-list-item" onclick="openModal('edu1')">
-                    <div>
-                        <h3>[Grado 1 @ Institución]</h3>
-                        <div class="subtitle-text">[Detalles ocultos]</div>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Habilidades Mobile -->
-            <div class="section">
-                <h2 class="section-title">Habilidades</h2>
-                <div class="skills-section">
-                    <p><strong>Técnicas:</strong> [Tag] [Tag] [Tag]</p>
-                    <p><strong>Blandas:</strong> [Tag]</p>
-                    <p><strong>Idiomas:</strong> [Idioma - Nivel]</p>
-                </div>
-            </div>
-
-            <!-- Proyectos Mobile -->
-            <div class="section">
-                <h2 class="section-title">Proyectos</h2>
-                <div class="mobile-list-item" onclick="openModal('proj1')">
-                    <div class="mobile-project-item">
-                        <div class="project-img">Img</div>
-                        <div>
-                            <h3>[Nombre Proyecto 1]</h3>
-                            <div class="subtitle-text">[Detalles y enlace ocultos]</div>
-                        </div>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-                <div class="mobile-list-item" onclick="openModal('proj2')">
-                    <div class="mobile-project-item">
-                        <div class="project-img">Img</div>
-                        <div>
-                            <h3>[Nombre Proyecto 1]</h3>
-                            <div class="subtitle-text">[Detalles y enlace ocultos]</div>
-                        </div>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para detalles -->
-    <div id="modal" class="modal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h2 id="modalTitle">Título</h2>
-                <span class="modal-close" onclick="closeModal()">&times;</span>
-            </div>
-            <div id="modalBody"></div>
+        
+        <p>Disculpa las molestias y gracias por tu comprensión.</p>
+        
+        <div class="contact">
+            Para consultas urgentes: <a href="mailto:soporte@tudominio.com" style="color: #fdbb2d;">soporte@tudominio.com</a>
         </div>
     </div>
 
     <script>
-        // Sistema de modales para vista móvil
-        const modalData = {
-            exp1: {
-                title: '[Puesto 1 @ Empresa]',
-                content: `
-                    <p style="color: #666; margin-bottom: 15px;">[Mes Año - Mes Año]</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">• Lideré proyecto que resultó en [resultado medible]</li>
-                        <li style="margin-bottom: 10px;">• Implementé [tecnología/proceso] mejorando [métrica] en X%</li>
-                        <li style="margin-bottom: 10px;">• Colaboré con equipo de X personas en [logro específico]</li>
-                    </ul>
-                `
-            },
-            exp2: {
-                title: '[Puesto 2 @ Empresa]',
-                content: `
-                    <p style="color: #666; margin-bottom: 15px;">[Mes Año - Mes Año]</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">• Desarrollé [proyecto/sistema] para [propósito]</li>
-                        <li style="margin-bottom: 10px;">• Optimicé [proceso] reduciendo [métrica] en X%</li>
-                        <li style="margin-bottom: 10px;">• Gestioné [responsabilidad específica]</li>
-                    </ul>
-                `
-            },
-            edu1: {
-                title: '[Grado @ Institución]',
-                content: `
-                    <p style="color: #666; margin-bottom: 15px;">[Año inicio - Año fin]</p>
-                    <p>Áreas de enfoque: [Menciona especialización o áreas relevantes]</p>
-                    <p style="margin-top: 10px;">Logros destacados: [Menciones honoríficas, promedio, proyectos relevantes]</p>
-                `
-            },
-            proj1: {
-                title: 'Nombre Proyecto 1',
-                content: `
-                    <p style="color: #666; margin-bottom: 15px;">[Año]</p>
-                    <p style="margin-bottom: 15px;">Aplicación web para [propósito]. Desarrollado con React, Node.js y MongoDB.</p>
-                    <p style="margin-bottom: 10px;"><strong>Resultados:</strong> [Impacto o métricas del proyecto]</p>
-                    <p><strong>Enlace:</strong> <a href="#" style="color: #0066cc;">Ver proyecto</a></p>
-                `
-            },
-            proj2: {
-                title: 'Nombre Proyecto 2',
-                content: `
-                    <p style="color: #666; margin-bottom: 15px;">[Año]</p>
-                    <p style="margin-bottom: 15px;">Sistema de [descripción]. Stack tecnológico: Python, Django, PostgreSQL.</p>
-                    <p style="margin-bottom: 10px;"><strong>Características:</strong> [Lista de funcionalidades principales]</p>
-                    <p><strong>Enlace:</strong> <a href="#" style="color: #0066cc;">Ver proyecto</a></p>
-                `
-            }
-        };
-
-        function openModal(id) {
-            const modal = document.getElementById('modal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
+        // Simular progreso de mantenimiento
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBar = document.getElementById('progressBar');
+            let progress = 0;
             
-            if (modalData[id]) {
-                modalTitle.textContent = modalData[id].title;
-                modalBody.innerHTML = modalData[id].content;
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal(event) {
-            const modal = document.getElementById('modal');
-            if (!event || event.target === modal || event.type === 'click') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Detectar cambio de tamaño de ventana
-        let lastWidth = window.innerWidth;
-        window.addEventListener('resize', function() {
-            const currentWidth = window.innerWidth;
-            if ((lastWidth <= 768 && currentWidth > 768) || 
-                (lastWidth > 768 && currentWidth <= 768)) {
-                closeModal();
-            }
-            lastWidth = currentWidth;
-        });
-
-        // Animación suave al cargar
-        window.addEventListener('load', function() {
-            document.querySelector('.cv-container').style.opacity = '0';
-            setTimeout(() => {
-                document.querySelector('.cv-container').style.transition = 'opacity 0.5s ease';
-                document.querySelector('.cv-container').style.opacity = '1';
-            }, 100);
+            const interval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                }
+                progressBar.style.width = progress + '%';
+            }, 500);
         });
     </script>
 </body>
