@@ -3,417 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoja de Vida - Néstor Arroyo</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
-            transition: all 0.3s ease;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .cv-container {
-            max-width: 850px;
-            margin: 0 auto;
-            background-color: white;
-            border: 2px solid #2c3e50;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* VISTA ESCRITORIO */
-        .desktop-view {
-            display: block;
-            padding: 40px;
-        }
-
-        .mobile-view {
-            display: none;
-        }
-
-        /* Header Escritorio */
-        .header-desktop {
-            text-align: center;
-            padding-bottom: 25px;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #2c3e50;
-        }
-
-        .header-desktop h1 {
-            font-size: 2.2em;
-            margin-bottom: 5px;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-
-        .header-desktop .subtitle {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            color: #3498db;
-            font-weight: 600;
-        }
-
-        .contact-info {
-            font-size: 0.95em;
-            color: #555;
-            margin-bottom: 10px;
-        }
-
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #e0e0e0;
-            margin: 20px 0;
-        }
-
-        /* Secciones Escritorio */
-        .section {
-            margin-bottom: 25px;
-        }
-
-        .section-title {
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            text-transform: uppercase;
-        }
-
-        /* Tabla de Experiencia */
-        .experience-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        .experience-table td {
-            vertical-align: top;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .experience-item h3 {
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .company {
-            font-weight: 600;
-            color: #3498db;
-            margin-bottom: 5px;
-        }
-
-        .dates {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-item li {
-            font-size: 0.95em;
-            margin-bottom: 8px;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .experience-item li:before {
-            content: "-";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
-
-        /* Educación */
-        .education-item {
-            margin-bottom: 15px;
-        }
-
-        .education-item h3 {
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        /* Habilidades */
-        .skills-section p {
-            margin-bottom: 10px;
-            font-size: 0.95em;
-        }
-
-        .skills-section strong {
-            font-weight: bold;
-        }
-
-        /* Proyectos */
-        .projects-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        .projects-table td {
-            vertical-align: top;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .project-item h3 {
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-
-        .project-link {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Certificaciones */
-        .certifications-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .certifications-list li {
-            margin-bottom: 8px;
-            font-size: 0.95em;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .certifications-list li:before {
-            content: "-";
-            position: absolute;
-            left: 0;
-            color: #3498db;
-        }
-
-        /* VISTA MÓVIL */
-        @media (max-width: 768px) {
-            body {
-                padding: 0;
-                background-color: white;
-            }
-
-            .cv-container {
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-                max-width: 100%;
-            }
-
-            .desktop-view {
-                display: none;
-            }
-
-            .mobile-view {
-                display: block;
-                padding: 20px;
-            }
-
-            /* Header Mobile */
-            .header-mobile {
-                text-align: center;
-                padding-bottom: 20px;
-                margin-bottom: 20px;
-                border-bottom: 1px solid #e0e0e0;
-            }
-
-            .header-mobile h1 {
-                font-size: 1.8em;
-                margin-bottom: 5px;
-                font-weight: bold;
-                color: #2c3e50;
-            }
-
-            .header-mobile .subtitle {
-                font-size: 1.1em;
-                color: #3498db;
-                margin-bottom: 15px;
-                font-weight: 600;
-            }
-
-            /* Secciones Mobile */
-            .mobile-section {
-                margin-bottom: 25px;
-            }
-
-            .mobile-section-title {
-                font-size: 1.2em;
-                font-weight: 700;
-                margin-bottom: 15px;
-                color: #2c3e50;
-                text-transform: uppercase;
-            }
-
-            .mobile-summary {
-                margin-bottom: 15px;
-                color: #666;
-                font-size: 0.95em;
-            }
-
-            /* List Items Mobile */
-            .mobile-list-item {
-                border: 1px solid #e0e0e0;
-                padding: 15px;
-                margin-bottom: 10px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
-                transition: background-color 0.2s;
-                border-radius: 8px;
-            }
-
-            .mobile-list-item:hover {
-                background-color: #f9f9f9;
-            }
-
-            .mobile-list-item h3 {
-                font-size: 1em;
-                margin-bottom: 4px;
-                color: #2c3e50;
-            }
-
-            .mobile-list-item .subtitle-text {
-                font-size: 0.85em;
-                color: #666;
-            }
-
-            .mobile-list-item svg {
-                width: 20px;
-                height: 20px;
-                color: #999;
-            }
-
-            /* Habilidades Mobile */
-            .mobile-skills {
-                font-size: 0.95em;
-            }
-
-            .mobile-skills p {
-                margin-bottom: 10px;
-            }
-
-            /* Proyectos Mobile */
-            .mobile-project-item {
-                display: flex;
-                gap: 15px;
-                align-items: flex-start;
-            }
-
-            .mobile-project-item .project-img {
-                width: 40px;
-                height: 40px;
-                border: 1px solid #e0e0e0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 0.8em;
-                margin-bottom: 0;
-                border-radius: 6px;
-                background-color: #f8f9fa;
-                color: #666;
-                flex-shrink: 0;
-            }
-        }
-
-        /* Modal para detalles en móvil */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: white;
-            border-radius: 20px 20px 0 0;
-            padding: 25px;
-            max-height: 80vh;
-            overflow-y: auto;
-            animation: slideUp 0.3s ease;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .modal-close {
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #666;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-
-        @media print {
-            body {
-                background-color: white;
-                padding: 0;
-            }
-            
-            .cv-container {
-                border: 2px solid #000;
-                box-shadow: none;
-                max-width: 100%;
-            }
-
-            .mobile-view {
-                display: none !important;
-            }
-
-            .desktop-view {
-                display: block !important;
-            }
-        }
-    </style>
+    <title>Hoja de Vida - José Angel Rivera</title>
+   <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <div class="cv-container">
@@ -421,15 +12,15 @@
         <div class="desktop-view">
             <!-- ENCABEZADO -->
             <div class="header-desktop">
-                <h1>Néstor Arroyo</h1>
+                <h1>José Angel Rivera</h1>
                 <div class="subtitle">Técnico en Mantenimiento & Desarrollador de Software</div>
-                <div class="contact-info">+57 323 293 2153 | nestor.arroyo@email.com | linkedin.com/in/nestorarroyo | github.com/nestorarroyo | Bogotá, Colombia</div>
+                <div class="contact-info">+57 300 113 1473 | jose.rivera@email.com | linkedin.com/in/joserivera | github.com/joserivera | Medellín, Colombia</div>
             </div>
 
             <!-- RESUMEN/SOBRE MÍ -->
             <div class="section">
                 <h2 class="section-title">SOBRE MÍ</h2>
-                <p>Técnico con 2 años de experiencia en mantenimiento preventivo y correctivo, y 8 meses de formación en Análisis y Desarrollo de Software. Especializado en desarrollo de sistemas empresariales, logística y organización de procesos. Apasionado por la creación de soluciones tecnológicas eficientes.</p>
+                <p>Técnico con 2 años de experiencia en mantenimiento preventivo y correctivo, y 8 meses de formación en Análisis y Desarrollo de Software. Especializado en desarrollo de sistemas y mantenimiento mecánico. Apasionado por la creación de soluciones tecnológicas eficientes y el trabajo técnico especializado.</p>
             </div>
 
             <hr>
@@ -442,13 +33,14 @@
                     <tr>
                         <td>
                             <div class="experience-item">
-                                <h3>Diseñador y Programador de Sistemas</h3>
-                                <div class="company">HappyLiz</div>
-                                <div class="dates">Marzo 2023 - Presente</div>
+                                <h3>Auxiliar Mecánico</h3>
+                                <div class="company">Talleres Industriales ProMecánica</div>
+                                <div class="dates">Enero 2023 - Diciembre 2023</div>
                                 <ul>
-                                    <li>Diseñé e implementé el sistema integral de gestión empresarial</li>
-                                    <li>Desarrollé módulos de logística mejorando eficiencia en 40%</li>
-                                    <li>Gestioné implementación completa en todos los departamentos</li>
+                                    <li>Realicé mantenimiento preventivo y correctivo en maquinaria industrial</li>
+                                    <li>Asistí en reparaciones de sistemas mecánicos y eléctricos</li>
+                                    <li>Mantuve inventario de herramientas y repuestos</li>
+                                    <li>Colaboré en la implementación de protocolos de seguridad</li>
                                 </ul>
                             </div>
                         </td>
@@ -489,8 +81,8 @@
             <div class="section">
                 <h2 class="section-title">HABILIDADES</h2>
                 <div class="skills-section">
-                    <p><strong>Técnicas:</strong> JavaScript, Python, React, Node.js, SQL, Git, HTML/CSS, Mantenimiento Técnico</p>
-                    <p><strong>Blandas:</strong> Liderazgo, Comunicación efectiva, Resolución de problemas, Trabajo colaborativo, Gestión de tiempo</p>
+                    <p><strong>Técnicas:</strong> JavaScript, Python, React, Node.js, SQL, Git, HTML/CSS, Mantenimiento Mecánico</p>
+                    <p><strong>Blandas:</strong> Trabajo en equipo, Comunicación efectiva, Resolución de problemas, Atención al detalle, Gestión de tiempo</p>
                     <p><strong>Idiomas:</strong> Español (Nativo), Inglés (Intermedio - B1)</p>
                 </div>
             </div>
@@ -503,9 +95,9 @@
                     <tr>
                         <td>
                             <div class="project-item">
-                                <h3>Sistema de Gestión HappyLiz</h3>
-                                <div class="dates">2023 - Presente</div>
-                                <p>Sistema integral de gestión empresarial con módulos de inventario, logística y ventas.</p>
+                                <h3>Sistema de Gestión de Taller</h3>
+                                <div class="dates">2024</div>
+                                <p>Sistema para gestión de inventario y mantenimiento en talleres mecánicos.</p>
                                 <a href="#" class="project-link">Ver proyecto</a>
                             </div>
                         </td>
@@ -528,6 +120,7 @@
                     <li>Técnico en Mantenimiento Preventivo y Correctivo - SENA (2024)</li>
                     <li>Fundamentos de Programación - Platzi (2023)</li>
                     <li>Gestión de Proyectos - Google Actívate (2023)</li>
+                    <li>Seguridad en Espacios de Trabajo - ProMecánica (2023)</li>
                 </ul>
             </div>
         </div>
@@ -536,7 +129,7 @@
         <div class="mobile-view">
             <!-- Header Mobile -->
             <div class="header-mobile">
-                <h1>Néstor Arroyo</h1>
+                <h1>José Angel Rivera</h1>
                 <div class="subtitle">Técnico en Mantenimiento & Desarrollador</div>
             </div>
 
@@ -544,7 +137,7 @@
             <div class="mobile-section">
                 <h2 class="mobile-section-title">SOBRE MÍ</h2>
                 <div class="mobile-summary">
-                    Técnico con experiencia en mantenimiento y desarrollo de software. Especializado en creación de sistemas empresariales y optimización de procesos.
+                    Técnico con experiencia en mantenimiento mecánico y desarrollo de software. Especializado en soluciones técnicas y desarrollo de sistemas.
                 </div>
             </div>
 
@@ -553,8 +146,8 @@
                 <h2 class="mobile-section-title">EXPERIENCIA</h2>
                 <div class="mobile-list-item" onclick="openModal('exp1')">
                     <div>
-                        <h3>Diseñador y Programador @ HappyLiz</h3>
-                        <div class="subtitle-text">Mar 2023 - Presente</div>
+                        <h3>Auxiliar Mecánico @ ProMecánica</h3>
+                        <div class="subtitle-text">Ene 2023 - Dic 2023</div>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -599,7 +192,7 @@
                 <h2 class="mobile-section-title">HABILIDADES</h2>
                 <div class="mobile-skills">
                     <p><strong>Técnicas:</strong> JavaScript HTML/CSS Python SQL Git</p>
-                    <p><strong>Blandas:</strong> Liderazgo Resolución Problemas Trabajo Equipo</p>
+                    <p><strong>Blandas:</strong> Trabajo Equipo Resolución Problemas Atención Detalle</p>
                     <p><strong>Idiomas:</strong> Español (Nativo) Inglés (Intermedio)</p>
                 </div>
             </div>
@@ -611,8 +204,8 @@
                     <div class="mobile-project-item">
                         <div class="project-img">Sis</div>
                         <div>
-                            <h3>Sistema Gestión HappyLiz</h3>
-                            <div class="subtitle-text">Sistema empresarial integral</div>
+                            <h3>Sistema Gestión Taller</h3>
+                            <div class="subtitle-text">Gestión de inventario</div>
                         </div>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -650,14 +243,14 @@
         // Sistema de modales para vista móvil
         const modalData = {
             exp1: {
-                title: 'Diseñador y Programador @ HappyLiz',
+                title: 'Auxiliar Mecánico @ ProMecánica',
                 content: `
-                    <p style="color: #666; margin-bottom: 15px;">Marzo 2023 - Presente</p>
+                    <p style="color: #666; margin-bottom: 15px;">Enero 2023 - Diciembre 2023</p>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 10px;">• Diseñé e implementé el sistema integral de gestión empresarial</li>
-                        <li style="margin-bottom: 10px;">• Desarrollé módulos de logística mejorando eficiencia en 40%</li>
-                        <li style="margin-bottom: 10px;">• Gestioné implementación completa en todos los departamentos</li>
-                        <li style="margin-bottom: 10px;">• Capacité al personal en el uso del nuevo sistema</li>
+                        <li style="margin-bottom: 10px;">• Realicé mantenimiento preventivo y correctivo en maquinaria industrial</li>
+                        <li style="margin-bottom: 10px;">• Asistí en reparaciones de sistemas mecánicos y eléctricos</li>
+                        <li style="margin-bottom: 10px;">• Mantuve inventario de herramientas y repuestos</li>
+                        <li style="margin-bottom: 10px;">• Colaboré en la implementación de protocolos de seguridad</li>
                     </ul>
                 `
             },
@@ -669,7 +262,6 @@
                         <li style="margin-bottom: 10px;">• Mantenimiento preventivo y correctivo en equipos industriales</li>
                         <li style="margin-bottom: 10px;">• Implementé protocolos reduciendo fallas en 30%</li>
                         <li style="margin-bottom: 10px;">• Gestioné inventario optimizando costos operativos</li>
-                        <li style="margin-bottom: 10px;">• Documenté procedimientos técnicos</li>
                     </ul>
                 `
             },
@@ -690,10 +282,10 @@
                 `
             },
             proj1: {
-                title: 'Sistema de Gestión HappyLiz',
+                title: 'Sistema de Gestión de Taller',
                 content: `
-                    <p style="color: #666; margin-bottom: 15px;">2023 - Presente</p>
-                    <p style="margin-bottom: 15px;">Sistema integral de gestión empresarial desarrollado para HappyLiz. Incluye módulos de inventario, logística, ventas y reportes.</p>
+                    <p style="color: #666; margin-bottom: 15px;">2024</p>
+                    <p style="margin-bottom: 15px;">Sistema para gestión de inventario y mantenimiento en talleres mecánicos. Desarrollado como proyecto académico.</p>
                     <p style="margin-bottom: 10px;"><strong>Tecnologías:</strong> JavaScript, HTML/CSS, Python, SQL</p>
                     <p><strong>Enlace:</strong> <a href="#" style="color: #0066cc;">Ver Demo</a></p>
                 `
